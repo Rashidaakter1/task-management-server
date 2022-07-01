@@ -51,7 +51,17 @@ async function run() {
       res.send(result)
     })
 
-    //put method in task
+ 
+
+    //delete method on tasks
+    app.delete('/tasks/:id', async (req, res) => {
+      const id = req.params.id;
+      const filter = { _id: ObjectId(id) };
+      const result = await userToDoCollection.deleteOne(filter);
+      res.send(result)
+    })
+
+       //put method in task
     app.patch('/tasks/:id', async (req, res) => {
       const id = req.params.id;
       
@@ -68,13 +78,6 @@ async function run() {
       res.send(result)
     })
 
-    //delete method on tasks
-    app.delete('/tasks/:id', async (req, res) => {
-      const id = req.params.id;
-      const filter = { _id: ObjectId(id) };
-      const result = await userToDoCollection.deleteOne(filter);
-      res.send(result)
-    })
 
     //post method on completed task
     app.post('/completedTask',async(req,res)=>{
