@@ -1,3 +1,2 @@
 node_modules
-DB_USER=DbtaskUser
-DB_PASS=XSoHtqryCy1RFBNF
+.env
